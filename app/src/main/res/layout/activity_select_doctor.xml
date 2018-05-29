@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.project.kalpawijesooriya.patient.SelectDoctor">
+    <include layout="@layout/app_bar_layout" android:id="@+id/main_page_toolbar"/>
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="match_parent"
+        android:layout_height="420dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="193dp"
+        android:layout_marginBottom="-15dp"
+        android:src="@drawable/doctor" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/text"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:popupBackground="@color/select"
+        android:textColor="@color/colorPrimaryDark"
+       android:layout_marginLeft="80dp"
+        android:textSize="25sp"
+        android:text="@string/chanel_your_doctor"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="55dp"
+        android:background="#50097e35">
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="100dp"
+        android:orientation="vertical">
+<RelativeLayout
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="90dp"
+    android:id="@+id/rel_sep"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#67097e35">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:id="@+id/textspecil"
+        android:textColor="@color/colorBlack"
+        android:text="@string/speciality" />
+    <android.support.v7.widget.AppCompatSpinner
+        android:id="@+id/specility"
+        android:layout_marginTop="20px"
+        android:popupBackground="@color/select"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/textspecil"
+
+       >
+
+
+    </android.support.v7.widget.AppCompatSpinner>
+
+
+</RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rel_sep"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="10dp"
+
+            android:text="@string/or"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+        <RelativeLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#67097e35">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:id="@+id/textdoctor"
+                android:textColor="@color/colorBlack"
+                android:text="@string/doctor" />
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/doctor"
+                android:layout_marginTop="20px"
+                android:popupBackground="@color/select"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/textdoctor"
+
+                >
+
+
+            </android.support.v7.widget.AppCompatSpinner>
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/search_doctor_btn"
+            android:layout_width="500px"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:background="#095827"
+            android:text="@string/search"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:layout_marginTop="120dp"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

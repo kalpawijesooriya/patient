@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.project.kalpawijesooriya.patient">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+        android:name=".Fireapp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme2" />
+        <activity
+            android:name=".Promotion"
+            android:theme="@style/AppTheme2" />
+        <activity
+            android:name=".HeathAdvices"
+            android:theme="@style/AppTheme2" />
+        <activity
+            android:name=".MedAlarm"
+            android:theme="@style/AppTheme2" />
+        <activity android:name=".HeathTracker" />
+        <activity android:name=".HeathServices" />
+        <activity
+            android:name=".Login"
+            android:theme="@style/AppTheme2">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SignupActivity"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme2" />
+        <activity
+            android:name=".ResetPasswordActivity"
+            android:label="@string/title_activity_reset_password"
+            android:theme="@style/AppTheme2" />
+        <activity
+            android:name=".Chat"
+            android:parentActivityName=".HeathServices"
+            android:theme="@style/AppTheme2" />
+        <activity android:name=".PromotionDetails" />
+        <activity
+            android:name=".ProfileImage"
+            android:theme="@style/AppTheme2" />
+        <activity
+            android:name=".SelectDoctor"
+            android:theme="@style/AppTheme2" />
+        <activity
+            android:name=".SelectConsaltation"
+            android:theme="@style/AppTheme2" />
+        <activity
+            android:name=".AppoinmentDetails"
+            android:theme="@style/AppTheme2" />
+        <activity android:name=".AdviceDetails" />
+        <activity android:name=".Payments"
+            android:theme="@style/AppTheme2"></activity>
+    </application>
+
+</manifest>

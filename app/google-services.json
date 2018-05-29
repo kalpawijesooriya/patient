@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "776974370251",
+    "firebase_url": "https://patient-management-syste-9758b.firebaseio.com",
+    "project_id": "patient-management-syste-9758b",
+    "storage_bucket": "patient-management-syste-9758b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:776974370251:android:0e13f3e250de9f37",
+        "android_client_info": {
+          "package_name": "com.project.kalpawijesooriya.patient"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "776974370251-69t9l6h0a7nah88kln6l35u2u585oo2o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.project.kalpawijesooriya.patient",
+            "certificate_hash": "1bfc89fb489430cf730163d54fbe8cb7daac1788"
+          }
+        },
+        {
+          "client_id": "776974370251-8u5tpo43prt9m6r6kqgqgqs9sb8008uk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhyTWN6l9cQYXCkpO_Z3bsN7LbQ03ReWg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "776974370251-8u5tpo43prt9m6r6kqgqgqs9sb8008uk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.project.kalpawijesooriya.patient.PromotionDetails">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical">
+
+      <pl.droidsonroids.gif.GifImageView
+          android:layout_marginTop="5dp"
+          android:id="@+id/promodetails_img"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="#00ffffff"
+          />
+<TextView
+    android:id="@+id/pro_deta_title"
+    android:textStyle="bold"
+    android:textColor="#000"
+    android:textSize="18sp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/promodetais"
+        android:textColor="#000"
+        android:textSize="16sp"
+        android:layout_marginLeft="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"/>
+  </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.project.kalpawijesooriya.patient.ProfileImage">
+
+    <ImageView
+        android:id="@+id/profilepic"
+        android:layout_width="300dp"
+        android:layout_height="350dp"
+        android:background="@drawable/my_button_bg"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/profilbilde"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:scaleType="fitXY" android:contentDescription="@string/todo" />
+
+    <Button
+        android:id="@+id/choseImage"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:textAllCaps="false"
+        android:layout_alignStart="@+id/uploadImage"
+        android:layout_below="@+id/uploadImage"
+        android:layout_marginTop="9dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/chose_a_image"
+        android:textColor="@color/colorAccent" />
+
+    <Button
+        android:textAllCaps="false"
+        android:id="@+id/uploadImage"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/profilepic"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/upload_image"
+        android:textColor="@color/colorAccent" />
+
+    <Button
+        android:textAllCaps="false"
+        android:id="@+id/skip"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/choseImage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        android:background="@null"
+        android:text="@string/skip"
+        android:textColor="@color/colorBlack" />
+
+
+</RelativeLayout>

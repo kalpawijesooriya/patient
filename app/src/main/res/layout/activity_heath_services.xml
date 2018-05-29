@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#dcdada"
+    tools:context="com.project.kalpawijesooriya.patient.HeathServices">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginLeft="5dp"
+    android:text="Welcome Kalpa"
+    android:textStyle="bold"/>
+    <RelativeLayout
+        android:id="@+id/appointment_layout"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="35dp"
+        android:background="#fff">
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="@string/appointments"
+             android:textSize="25dp"
+             android:textStyle="bold"
+             android:layout_marginLeft="150dp"
+             android:layout_marginTop="50dp"/>
+<de.hdodenhof.circleimageview.CircleImageView
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="25dp"
+    android:src="@drawable/appointment"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/chat"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@+id/appointment_layout"
+        android:layout_marginTop="10dp"
+        android:background="#fff">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/messages"/>
+
+
+        <TextView
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/messages"
+            android:textSize="25dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="50dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/MedicalRecods_layout"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/chat"
+        android:layout_height="150dp"
+        android:background="#fff">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/medical"/>
+
+        <TextView
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/medical_records"
+            android:textSize="25dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="50dp"/>
+    </RelativeLayout>
+
+
+</RelativeLayout>

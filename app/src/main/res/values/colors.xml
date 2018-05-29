@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#178449</color>
+    <color name="colorPrimaryDark">#095827</color>
+    <color name="colorAccent">#ffffff</color>
+    <color name="select">#f3178449</color>
+    <color name="colorHint">#bcbcbc</color>
+    <color name="colorBlack">#000</color>
+    <color name="colorbtn">#095827</color>
+    <item name="visible" type="id"/>
+    <item name="masked" type="id"/>
+    <color name="placeholder_bg">#dddddd</color>
+    <color name="item_name">#0c0c0c</color>
+    <color name="description">#1a1a1a</color>
+    <color name="chef">#777</color>
+    <color name="timestamp">#777</color>
+    <color name="colornextnumber">#1F42E0</color>
+    <color name="colorbookNow">#f11a1d</color>
+</resources>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.project.kalpawijesooriya.patient.MainActivity">
+    <include layout="@layout/app_bar_layout" android:id="@+id/main_page_toolbar"/>
+
+
+   <RelativeLayout
+       android:layout_below="@+id/main_page_toolbar"
+       android:layout_marginTop="15px"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+    <RelativeLayout
+
+
+        android:id="@+id/relativeLayout_promotion"
+        android:layout_width="165dp"
+        android:layout_height="155dp"
+        android:layout_marginLeft="15px"
+        android:layout_marginTop="15px"
+        android:background="#FFBA5C"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="25dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="11dp"
+            android:text="Promotions"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="120dp"
+            android:layout_height="110dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/promotion" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout_heathadvice"
+        android:layout_width="165dp"
+        android:layout_height="155dp"
+        android:layout_alignParentEnd="true"
+
+        android:layout_margin="15px"
+        android:layout_marginBottom="0px"
+        android:layout_marginRight="15px"
+        android:layout_marginTop="15px"
+        android:background="#13CE66"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="11dp"
+            android:text="Health Advices"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="120dp"
+            android:layout_height="110dp"
+            android:layout_alignLeft="@+id/textView3"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/textView3"
+            android:src="@drawable/advices" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout_heathtracker"
+        android:layout_width="165dp"
+        android:layout_height="155dp"
+
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20px"
+        android:background="#178449"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="11dp"
+            android:text="Health Tracker"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="110dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/textView4"
+            android:src="@drawable/tracker" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout_heathcenter"
+        android:layout_width="165dp"
+        android:layout_height="155dp"
+        android:layout_alignStart="@+id/relativeLayout_promotion"
+        android:layout_alignTop="@+id/relativeLayout_medalarm"
+        android:background="#13CE66"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="11dp"
+            android:text="Helalth Center"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="110dp"
+            android:layout_alignEnd="@+id/textView2"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/textView2"
+            android:src="@drawable/heathcenter" />
+    </RelativeLayout>
+
+    <RelativeLayout
+
+        android:id="@+id/relativeLayout_medalarm"
+        android:layout_width="165dp"
+        android:layout_height="155dp"
+
+        android:layout_alignStart="@+id/relativeLayout_heathadvice"
+        android:layout_below="@+id/relativeLayout_promotion"
+        android:layout_marginTop="16dp"
+        android:background="#FFBA5C"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="207dp"
+        tools:layout_editor_absoluteY="187dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="11dp"
+            android:text="Med Alarm"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="110dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/alarm" />
+    </RelativeLayout>
+
+   </RelativeLayout>
+</RelativeLayout>
