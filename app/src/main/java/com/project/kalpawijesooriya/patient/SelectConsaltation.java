@@ -289,7 +289,7 @@ public class SelectConsaltation extends AppCompatActivity {
                         b.putString("room",room);
                         b.putString("fee",fee);
                         b.putString("docName", doctor);
-                        b.putString("startTime",starttimeddd);
+                        b.putString("startTime",starttime);
                         b.putString("spciality",specilitys);
                         b.putString("timeperpatient", String.valueOf(timeperpatient));
                         b.putString("number",appointmentno );
