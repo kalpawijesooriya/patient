@@ -96,17 +96,19 @@
             android:textStyle="bold"
             android:layout_marginLeft="250dp"
             android:text="100.00"/>
+
         <Button
+            android:id="@+id/submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingRight="20dp"
-            android:paddingLeft="20dp"
-            android:text="Submit"
-            android:textSize="16dp"
-            android:textColor="#fff"
-            android:background="#3c51b7"
             android:layout_marginLeft="125dp"
-            android:layout_marginTop="230dp"/>
+            android:layout_marginTop="230dp"
+            android:background="#3c51b7"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="Submit"
+            android:textColor="#fff"
+            android:textSize="16dp" />
     </RelativeLayout>
     <ImageView
 
