@@ -68,8 +68,10 @@
             android:name=".AppoinmentDetails"
             android:theme="@style/AppTheme2" />
         <activity android:name=".AdviceDetails" />
-        <activity android:name=".Payments"
-            android:theme="@style/AppTheme2"></activity>
+        <activity
+            android:name=".Payments"
+            android:theme="@style/AppTheme2" />
+        <activity android:name=".DisplayPastAppointments"></activity>
     </application>
 
 </manifest>

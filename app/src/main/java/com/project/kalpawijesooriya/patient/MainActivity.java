@@ -40,7 +40,6 @@ private RelativeLayout promotion,alarm,tracker,services,advices;
 
         String tocan= FirebaseInstanceId.getInstance().getToken();
         System.out.print(tocan);
-        Toast.makeText(getApplicationContext(), tocan, Toast.LENGTH_SHORT).show();
         auth = FirebaseAuth.getInstance();
 
         //get current user

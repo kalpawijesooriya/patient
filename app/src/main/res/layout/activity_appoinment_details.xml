@@ -47,14 +47,7 @@
                 android:textAllCaps="false"
                 android:textColor="@color/colorAccent" />
 
-            <ImageView
-                android:id="@+id/paid"
-                android:layout_width="300px"
-                android:layout_height="300px"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="23dp"
-                android:src="@drawable/paid" />
+
         </RelativeLayout>
 
 
@@ -276,9 +269,24 @@
 
             </LinearLayout>
         </LinearLayout>
+        <ImageView
+            android:id="@+id/paid"
+            android:layout_width="300px"
+            android:layout_height="300px"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="23dp"
+            android:src="@drawable/paid" />
 
     </RelativeLayout>
 
-
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="150dp"
+        android:visibility="gone"
+        android:layout_marginTop="280dp"
+        />
 
 </RelativeLayout>

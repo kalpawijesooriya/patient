@@ -7,14 +7,17 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.net.Uri;
 import android.os.Environment;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -36,34 +39,33 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
+import static java.lang.Thread.sleep;
+
 
 public class AppoinmentDetails extends AppCompatActivity {
     private Toolbar mToolbar;
-    private String consultationID;
-    private FirebaseAuth mAuth;
-   private StorageReference ref;
    private Button  confirm;
    String number,timeperpatient;
    String Totalfee;
-    FirebaseStorage storage;
-    StorageReference storageReference;
+    Bundle b;
+    private ProgressBar progressBar;
     private String consulID;
-    private Firebase mdatabase;
-    private Firebase doctorref;
     ImageView imageView4,paid;
-    private Firebase sheduleref;
+    private boolean reloadNedeed = true;
+    Bitmap bitmap = null;
    private TextView docName,special,datetext,startTime,apxTime,doc_fee,hos_fee,appointmentNo,roomNo,totalfee;
+    private final int FIVE_SECONDS = 0;
+    Handler handler = new Handler();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appoinment_details);
-        storage = FirebaseStorage.getInstance();
-        storageReference = storage.getReference();
         imageView4=(ImageView)findViewById(R.id.imageView4);
         mToolbar = (Toolbar) findViewById(R.id.consultation_page_toolbar);
         setSupportActionBar(mToolbar);
@@ -72,7 +74,6 @@ public class AppoinmentDetails extends AppCompatActivity {
         getSupportActionBar().setTitle("Add Appointments");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        mAuth = FirebaseAuth.getInstance();
         special = (TextView) findViewById(R.id.special);
         datetext = (TextView) findViewById(R.id.date);
         docName = (TextView) findViewById(R.id.docName);
@@ -85,24 +86,14 @@ public class AppoinmentDetails extends AppCompatActivity {
         confirm=(Button)findViewById(R.id.confirm);
         totalfee=(TextView)findViewById(R.id.totalFee);
         paid=(ImageView)findViewById(R.id.paid);
-        Bundle b = getIntent().getExtras();
+         b = getIntent().getExtras();
         paid.setVisibility(View.GONE);
+
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         if (b != null) {
 
-            roomNo.setText(b.getString("room"));
-            datetext.setText(b.getString("date"));
-            doc_fee.setText("Rs."+b.getString("fee")+".00");
-            startTime.setText( b.getString("startTime"));
-            docName.setText(b.getString("docName"));
-            special.setText(b.getString("spciality"));
-            apxTime.setText(b.getString("timeperpatient"));
-            appointmentNo.setText(b.getString("number"));
-            totalfee.setText(b.getString("fee")+".00");
-            consulID =b.getString("consulID");
-            Totalfee=b.getString("fee");
-            timeperpatient= b.getString("timeperpatient");
-            number= b.getString("number");
+            load(  b);
 
 
         }
@@ -111,28 +102,36 @@ public class AppoinmentDetails extends AppCompatActivity {
      confirm.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
-             paid.setVisibility(View.VISIBLE);
-             confirm.setVisibility(View.GONE);
-             View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
-             Bitmap bitmap=  takeScreenshot();
-             imageView4.setImageBitmap(bitmap);
-             Intent intent = new Intent(AppoinmentDetails.this, Payments.class);
-             Bundle b = new Bundle();
-             b.putString("total",Totalfee);
-
-             b.putString("timeperpatient",timeperpatient);
-             b.putString("number",number );
-             b.putString("consulID",consulID);
-             intent.putExtras(b);
-             startActivity(intent);
-             finish();
-
-           //  store(bitmap, "DCIM");
-
+             changevisibility();
 
          }
      });
 
+    }
+    private void load( Bundle b)
+    {
+        roomNo.setText(b.getString("room"));
+        datetext.setText(b.getString("date"));
+        doc_fee.setText("Rs."+b.getString("fee")+".00");
+        startTime.setText( b.getString("startTime"));
+        docName.setText(b.getString("docName"));
+        special.setText(b.getString("spciality"));
+        apxTime.setText(b.getString("timeperpatient"));
+        appointmentNo.setText(b.getString("number"));
+        totalfee.setText(b.getString("fee")+".00");
+        consulID =b.getString("consulID");
+        Totalfee=b.getString("fee");
+        timeperpatient= b.getString("timeperpatient");
+        number= b.getString("number");
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if (this.reloadNedeed)
+            this.load( b);
+
+        this.reloadNedeed = false; // do not reload anymore, unless I tell you so...
     }
 
     @Override
@@ -145,26 +144,11 @@ public class AppoinmentDetails extends AppCompatActivity {
         super.onStart();
 
     }
-    public static Bitmap getScreenShot(View view) {
-        View screenView = view.getRootView();
-        screenView.setDrawingCacheEnabled(true);
-        Bitmap bitmap = Bitmap.createBitmap(screenView.getDrawingCache());
-        screenView.setDrawingCacheEnabled(false);
-        return bitmap;
-    }
 
-    public static Bitmap loadBitmapFromView(View v) {
-        Bitmap b = Bitmap.createBitmap(700, 1000, Bitmap.Config.ARGB_8888);
-        Canvas c = new Canvas(b);
-        v.layout(-100, -90, v.getLayoutParams().width, v.getLayoutParams().height);
-        v.draw(c);
-        return b;
 
-    }
+    private void takeScreenshot() {
 
-    private Bitmap takeScreenshot() {
 
-        Bitmap bitmap = null;
 
         try {
 
@@ -179,22 +163,72 @@ public class AppoinmentDetails extends AppCompatActivity {
             u.layout(0, 0, totalWidth, totalHeight);
             u.buildDrawingCache(true);
             bitmap = Bitmap.createBitmap(u.getDrawingCache());
-            u.setDrawingCacheEnabled(false);
 
-            File imageFile = new File(mPath);
 
-            FileOutputStream outputStream = new FileOutputStream(imageFile);
-            int quality = 100;
-            bitmap.compress(Bitmap.CompressFormat.JPEG, quality, outputStream);
-            outputStream.flush();
-            outputStream.close();
-           
         } catch (Throwable e) {
 
             e.printStackTrace();
         }
-        return bitmap;
-    }
 
+        uploadImage(bitmap);
+    }
+    public void uploadImage(final Bitmap bitmap) {
+        progressBar.setVisibility(View.VISIBLE);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] data = baos.toByteArray();
+        FirebaseUser currentUser= FirebaseAuth.getInstance().getCurrentUser();
+        final String uid=currentUser.getUid();
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference storageRef = storage.getReferenceFromUrl("gs://patient-management-syste-9758b.appspot.com");
+        StorageReference imagesRef = storageRef.child("appointments/"+consulID+"/"+uid+".jpg");
+
+        UploadTask uploadTask = imagesRef.putBytes(data);
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle unsuccessful uploads
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
+                Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                Intent intent = new Intent(AppoinmentDetails.this, Payments.class);
+                Bundle b = new Bundle();
+                b.putString("total",Totalfee);
+                b.putString("timeperpatient",timeperpatient);
+                b.putString("number",number );
+                b.putString("consulID",consulID);
+                b.putString("Bill",downloadUrl.toString());
+
+                ByteArrayOutputStream baos=new  ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG,100, baos);
+                byte [] arr=baos.toByteArray();
+                String result= Base64.encodeToString(arr, Base64.DEFAULT);
+
+                b.putString("bitmap",result);
+                intent.putExtras(b);
+                progressBar.setVisibility(View.GONE);
+                startActivity(intent);
+                finish();
+            }
+        });
+    }
+    private void changevisibility()
+    {
+        confirm.setVisibility(View.GONE);
+        paid.setVisibility(View.VISIBLE);
+        handler.postDelayed(new Runnable() {
+            public void run() {
+
+                takeScreenshot();
+                confirm.setVisibility(View.VISIBLE);
+                paid.setVisibility(View.GONE);
+
+            }
+        }, FIVE_SECONDS);
+
+    }
 
 }

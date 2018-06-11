@@ -239,7 +239,7 @@ public class SelectConsaltation extends AppCompatActivity {
         }
         public void setlastno(String number)
         {
-            appointNo.setText("Next avealable number is "+ number+1);
+            appointNo.setText("Next avealable number is "+Integer.toString((Integer.parseInt(number)+1)) );
         }
 
 
@@ -258,7 +258,8 @@ public class SelectConsaltation extends AppCompatActivity {
                 Map<String, String> map = dataSnapshot.getValue(Map.class);
                 date = map.get("Date");
                 doctorID = map.get("DoctorID");
-                appointmentno=map.get("LastAppoimentNo")+1;
+                 appointmentno=Integer.toString((Integer.parseInt(map.get("LastAppoimentNo"))+1));
+
                 String nurse = map.get("Nurse");
                 room = map.get("Room");
                 shedulID = map.get("ScheduleID");
@@ -298,11 +299,12 @@ public class SelectConsaltation extends AppCompatActivity {
                         intent.putExtras(b);
                         progressBar.setVisibility(View.GONE);  //Put your id to your next Intent
                         startActivity(intent);
+                        finish();
                     }
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-                        // ...
+
                     }
                 });
 
