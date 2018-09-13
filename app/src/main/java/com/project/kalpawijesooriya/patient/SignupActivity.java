@@ -198,6 +198,7 @@ public class SignupActivity extends AppCompatActivity {
                                     usermap.put("Title",TITLE );
                                     usermap.put("Province",Province);
                                     usermap.put("Gender",Gender);
+                                    usermap.put("AppointmentCount","0");
                                     usermap.put("image","https://image.flaticon.com/icons/png/128/149/149071.png");
                                     usermap.put("Marry",Marry);mDatabase.setValue(usermap);
 

@@ -59,13 +59,37 @@ public class AppoinmentDetails extends AppCompatActivity {
     ImageView imageView4,paid;
     private boolean reloadNedeed = true;
     Bitmap bitmap = null;
-   private TextView docName,special,datetext,startTime,apxTime,doc_fee,hos_fee,appointmentNo,roomNo,totalfee;
+    String userId;
+    private FirebaseAuth mAuth;
+   private TextView docName,special,datetext,startTime,apxTime,doc_fee,hos_fee,appointmentNo,roomNo,totalfee,patientName;
     private final int FIVE_SECONDS = 0;
     Handler handler = new Handler();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appoinment_details);
+        mAuth= FirebaseAuth.getInstance();
+        patientName =(TextView)findViewById(R.id.patientName);
+        userId=mAuth.getCurrentUser().getUid();
+        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("User").child("patient").child(userId);
+
+        userRef.addValueEventListener(new com.google.firebase.database.ValueEventListener() {
+            @Override
+            public void onDataChange(com.google.firebase.database.DataSnapshot dataSnapshot) {
+
+                String fname = dataSnapshot.child("FirstName").getValue(String.class);
+                String lname = dataSnapshot.child("LastName").getValue(String.class);
+                String doctorname = fname + " " + lname;
+                patientName.setText(doctorname);
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
         imageView4=(ImageView)findViewById(R.id.imageView4);
         mToolbar = (Toolbar) findViewById(R.id.consultation_page_toolbar);
         setSupportActionBar(mToolbar);

@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -27,6 +28,7 @@ private RelativeLayout promotion,alarm,tracker,services,advices;
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseAuth auth;
     private String userId;
+
     private DatabaseReference myrefdatabase;
 
 
@@ -34,12 +36,12 @@ private RelativeLayout promotion,alarm,tracker,services,advices;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-              mToolbar=(Toolbar)findViewById(R.id.main_page_toolbar);
+        mToolbar=(Toolbar)findViewById(R.id.main_page_toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("Viweka Hospital");
 
-        String tocan= FirebaseInstanceId.getInstance().getToken();
-        System.out.print(tocan);
+
+
         auth = FirebaseAuth.getInstance();
 
         //get current user

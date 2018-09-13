@@ -261,7 +261,6 @@ public class SelectConsaltation extends AppCompatActivity {
                  appointmentno=Integer.toString((Integer.parseInt(map.get("LastAppoimentNo"))+1));
 
                 String nurse = map.get("Nurse");
-                room = map.get("Room");
                 shedulID = map.get("ScheduleID");
                 Shedule_ref=   FirebaseDatabase.getInstance().getReference().child("schedule");
                 Shedule_ref.child(shedulID).addValueEventListener(new ValueEventListener() {
@@ -269,6 +268,7 @@ public class SelectConsaltation extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         String starttime=  dataSnapshot.child("StartTime").getValue().toString();
                         String endtime=  dataSnapshot.child("EndTime").getValue().toString();
+                        room = dataSnapshot.child("Room").getValue().toString();
                         String patientNumber=  dataSnapshot.child("patientNumber").getValue().toString();
                         int patientnumberInt=Integer.parseInt(patientNumber);
 

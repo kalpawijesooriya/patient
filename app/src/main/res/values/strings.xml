@@ -75,12 +75,13 @@
     <string name="or">OR</string>
     <string name="search">Search</string>
     <string name="_07th_of_sunday_january_2018_at_9_00am">07th of Sunday January 2018 at 9.00am</string>
-    <string name="next_avealable_number_is_04">Next avealable number is 04</string>
+    <string name="next_avealable_number_is_04">Next available number is 04</string>
     <string name="book_now">Book Now</string>
     <string name="appointment_details">Appointment Details</string>
     <string name="appointment_date">Appointment Date :</string>
     <string name="appointment_no">Appointment No     :</string>
     <string name="confirm">Confirm</string>
+    <string name="conform">Conform</string>
     <string-array name="title">
         <item>Mr.</item>
         <item>Mrs.</item>
@@ -103,5 +104,6 @@
         <item>Mrs.</item>
         <item>Ms.</item>
     </string-array>
+    <string name="title_activity_location">Map</string>
 
 </resources>

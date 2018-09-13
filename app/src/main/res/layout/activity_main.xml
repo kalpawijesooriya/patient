@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context="com.project.kalpawijesooriya.patient.MainActivity">
     <include layout="@layout/app_bar_layout" android:id="@+id/main_page_toolbar"/>
 
@@ -14,6 +13,8 @@
        android:layout_marginTop="15px"
        android:layout_width="match_parent"
        android:layout_height="match_parent">
+
+
     <RelativeLayout
 
 
@@ -180,4 +181,5 @@
     </RelativeLayout>
 
    </RelativeLayout>
+
 </RelativeLayout>

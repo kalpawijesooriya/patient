@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:id="@+id/book_rel"
+    android:background="@drawable/message_backgroundwhite"
+    >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="5dp">
+        <TextView
+            android:id="@+id/app_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="APP. No : 01"
+            android:layout_marginBottom="3dp"/>
+        <TextView
+            android:id="@+id/app_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DATE : 02nd of October 2018"
+            android:layout_marginBottom="3dp"/>
+        <TextView
+            android:id="@+id/app_doctor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DOCTOR : M.R. Disanayake"
+            android:layout_marginBottom="3dp"/>
+        <TextView
+            android:id="@+id/app_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TIME: 09.45"
+            android:layout_marginBottom="3dp"/>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
